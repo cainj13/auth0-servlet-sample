@@ -14,6 +14,11 @@ gretty {
     host = '0.0.0.0'
     contextPath = '/'
     servletContainer 'tomcat8'
+    jvmArgs = [
+            '-Dhttps.proxySet=true',
+            '-Dhttps.proxyHost=localhost',
+            '-Dhttps.proxyPort=8080'
+    ]
 }
 
 repositories {
