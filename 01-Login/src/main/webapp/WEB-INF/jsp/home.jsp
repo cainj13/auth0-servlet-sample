@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home Page</title>
+    <title>OIDC Sample Web App</title>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/jumbotron-narrow.css">
     <link rel="stylesheet" type="text/css" href="/css/home.css">
@@ -24,33 +24,27 @@
                 <li id="qsLogoutBtn"><a href="#">Logout</a></li>
             </ul>
         </nav>
-        <h3 class="text-muted">App.com</h3>
+        <h3 class="text-muted">OIDC Sample Web App</h3>
     </div>
+        <div class="alert alert-info">
+        <h4>Last Page View (current session)</h4>
+        ${lastSeen}
+        </div>
     <div class="jumbotron">
         <h3>Hello ${userId}!</h3>
+        <p>${details}</p>
     </div>
     <div class="row marketing">
-        <div class="col-lg-6">
-            <h4>Subheading</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-            <h4>Subheading</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet
-                fermentum.</p>
-        </div>
-
-        <div class="col-lg-6">
-            <h4>Subheading</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-            <h4>Subheading</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet
-                fermentum.</p>
+        <div class="col-lg-12">
+            <h4>I am a server-side web application</h4>
+            <p>Written in Java, sporting servlet API support.  Sure, the kids these days aren't talking about my architecture... but I was the "serverless" before there was such a misnomer.  Look at a Lamba Handler definition, then look at the servlet API, now back at Lamba.  Seem familiar?  That's because servlets generalized the same problem that is being re-solved all over again.  You're welcome.</p>
         </div>
     </div>
 
     <footer class="footer">
-        <p> &copy; 2016 Company Inc</p>
+        <div>
+            Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+        </div>
     </footer>
 
 </div>
