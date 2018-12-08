@@ -26,13 +26,15 @@
         </nav>
         <h3 class="text-muted">OIDC Sample Web App</h3>
     </div>
-        <div class="alert alert-info">
-        <h4>Last Page View (current session)</h4>
-        ${lastSeen}
-        </div>
     <div class="jumbotron">
         <h3>Hello ${userId}!</h3>
-        <p>${details}</p>
+    </div>
+    <div class="alert alert-info">
+        <h4>Last Page View (current session)</h4>
+        ${lastSeen}
+    </div>
+    <div>
+        <code>${details}</code>
     </div>
     <div class="row marketing">
         <div class="col-lg-12">

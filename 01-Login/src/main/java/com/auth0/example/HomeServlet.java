@@ -26,24 +26,25 @@ public class HomeServlet extends HttpServlet {
         if (accessToken != null) {
             req.setAttribute("userId", accessToken);
         } else if (idToken != null) {
-            // TODO display ID token details, better format on username
-            req.setAttribute("userId", idToken);
+            PrettyJWT jwt = new JsonIoPrettyJwt(idToken);
+            req.setAttribute("details", String.format("%s\n%s", jwt.prettyHeader(), jwt.prettyPayload()));
+            req.setAttribute("userId", jwt.getClaim("sub").asString());
         } else {
             req.setAttribute("userId", "Unknown User");
         }
 
-        final Optional<Object> lastAccess = Optional.ofNullable(req.getSession().getAttribute("lastAccess"));
+        final Optional<Object> lastAccess = Optional.ofNullable(SessionUtils.get(req, "lastAccess"));
         if (lastAccess.isPresent()) {
             req.setAttribute("lastSeen", lastAccess.get());
         } else {
             req.setAttribute("lastSeen", "Never");
         }
 
-        req.getSession().setAttribute("lastAccess", currentTimeAsDate.get());
+        SessionUtils.set(req, "lastAccess", currentTimeAsDateString.get());
         req.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(req, res);
     }
 
-    private static Supplier<String> currentTimeAsDate = () -> {
+    private static Supplier<String> currentTimeAsDateString = () -> {
         final TimeZone timeZone = TimeZone.getTimeZone("UTC");
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
         dateFormat.setTimeZone(timeZone);
